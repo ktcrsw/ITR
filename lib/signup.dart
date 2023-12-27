@@ -36,25 +36,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController conpasswordController = TextEditingController();
 
   void handleLogin() {
     String name = nameController.text;
     String password = passwordController.text;
+    String phone = phoneController.text;
+    String email = emailController.text;
+    String conpassword = conpasswordController.text;
 
-    // Here, you can add the login functionality
-    // For now, let's just print the entered credentials
     print("Name: $name");
     print("Password: $password");
 
-    if (name == 'admin') {
-      MaterialPageRoute materialPageRoute =
-          MaterialPageRoute(builder: (BuildContext context) => Admin());
-      Navigator.of(context).push(materialPageRoute);
-    } else if (name == 'viangphing') {
-      MaterialPageRoute materialPageRoute =
-          MaterialPageRoute(builder: (BuildContext context) => User());
-      Navigator.of(context).push(materialPageRoute);
-    }
   }
 
   @override
@@ -91,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
-                controller: nameController,
+                controller: phoneController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Phone Number',
@@ -101,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
-                controller: nameController,
+                controller: emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email',
@@ -123,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
               child: TextField(
                 obscureText: true,
-                controller: passwordController,
+                controller: conpasswordController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Confirm Password',
